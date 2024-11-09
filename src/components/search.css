@@ -1,0 +1,58 @@
+section.search {
+    input.main {
+        background-color: transparent;
+        border: 1px solid #fff;
+        color: #fff;
+        padding: 1em;
+        border-radius: 2em;
+        margin-inline: auto;
+        width: 60%;
+        display: block;
+        box-sizing: border-box;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+    }
+
+    p {
+        text-align: center;
+
+        label.main {
+            @media screen and (max-width: 600px) {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        label.optional {
+            @media screen and (max-width: 350px) {
+                display: none;
+            }
+        }
+
+        input[type=date] {
+            margin-inline: 1em;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #fff;
+            color: #fff;
+            outline: none;
+            box-sizing: border-box;
+            position: relative;
+
+            @media screen and (max-width: 350px) {
+                margin-inline: 0;
+                width: 100%;
+            }
+        }
+
+        input[type=date]:before {
+            content: "📅";
+            position: relative;
+            right: 4px;
+            pointer-events: none;
+            position: absolute;
+        }
+    }
+}

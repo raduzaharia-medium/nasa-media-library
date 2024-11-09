@@ -26,20 +26,4 @@ main {
   @media screen and (max-width: 600px) {
     padding-top: 2em;
   }
-
-  input {
-    background-color: transparent;
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 1em;
-    border-radius: 2em;
-    margin-inline: auto;
-    width: 60%;
-    display: block;
-    box-sizing: border-box;
-
-    @media screen and (max-width: 600px) {
-      width: 100%;
-    }
-  }
 }
