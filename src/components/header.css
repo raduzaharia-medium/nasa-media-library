@@ -1,0 +1,13 @@
+header {
+  display: flex;
+  color: #fff;
+
+  img {
+    height: 6em;
+  }
+
+  span {
+    align-self: center;
+    font-size: 2em;
+  }
+}
