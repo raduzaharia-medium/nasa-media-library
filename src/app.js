@@ -5,7 +5,9 @@ export default function App() {
   return (
     <>
       <Header />
-      <main></main>
+      <main>
+        <input placeholder="Search..." />
+      </main>
     </>
   );
 }

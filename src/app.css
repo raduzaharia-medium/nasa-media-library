@@ -1,5 +1,6 @@
 :root {
   font-size: calc(14px + 0.25vw);
+  background-color: #000;
 }
 
 body {
@@ -14,24 +15,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   background-image: linear-gradient(#480d04, #000);
+  background-color: #000;
   color: #fff;
-}
-
-header {
-  display: flex;
-  color: #fff;
-
-  img {
-    height: 6em;
-  }
-
-  span {
-    align-self: center;
-    font-size: 2em;
-  }
 }
 
 main {
-  color: #fff;
-  height: 90vh;
+  min-height: 70vh;
+  padding-top: 4em;
+
+  @media screen and (max-width: 600px) {
+    padding-top: 2em;
+  }
+
+  input {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 1em;
+    border-radius: 2em;
+    margin-inline: auto;
+    width: 60%;
+    display: block;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
 }
