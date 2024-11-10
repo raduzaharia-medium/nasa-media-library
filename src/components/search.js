@@ -10,24 +10,26 @@ export default function Search() {
   const [startYear, setStartYear] = useState("");
   const [endYear, setEndYear] = useState("");
 
-  const doSearch = () => {
-    console.log("searching...");
+  const doSearch = (e) => {
+    e.preventDefault();
     setGlobalState({ ...globalState, search: search, startYear: startYear, endYear: endYear });
   };
 
   return (
     <section className="search">
-      <input placeholder="Search..." className="main" value={search} onChange={(e) => setSearch(e.target.value)} />
+      <form onSubmit={(e) => doSearch(e)}>
+        <input placeholder="Search..." className="main" value={search} onChange={(e) => setSearch(e.target.value)} />
 
-      <p>
-        <label className="main">Search for images between</label>
+        <p>
+          <label className="main">Search for images between</label>
 
-        <input type="number" placeholder="year start" value={startYear} onChange={(e) => setStartYear(e.target.value)} />
-        <label className="optional">and</label>
-        <input type="number" placeholder="year end" value={endYear} onChange={(e) => setEndYear(e.target.value)} />
-      </p>
+          <input type="number" placeholder="year start" value={startYear} onChange={(e) => setStartYear(e.target.value)} />
+          <label className="optional">and</label>
+          <input type="number" placeholder="year end" value={endYear} onChange={(e) => setEndYear(e.target.value)} />
+        </p>
 
-      <button onClick={(e) => doSearch()}>Search</button>
+        <button type="submit">Search</button>
+      </form>
     </section>
   );
 }

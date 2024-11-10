@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import AppContext from "../appContext";
@@ -7,9 +7,9 @@ import getMediaItems from "../services/nasaMediaLibrary";
 import "./searchResults.css";
 
 export default function SearchResults() {
-  const [globalState, setGlobalState] = useContext(AppContext);
+  const [globalState] = useContext(AppContext);
   const { isPending, error, data } = useQuery({
-    queryKey: ["mediaSearch"],
+    queryKey: ["mediaSearch", globalState],
     queryFn: async () => await getMediaItems(globalState.search),
   });
 
@@ -18,17 +18,14 @@ export default function SearchResults() {
   return (
     <section className="search-results">
       {isPending && <div className="loader"></div>}
-      {error && <span>An error has occured: {error.message}</span>}
+      {error && <span className="error">An error has occured: {error.message}</span>}
 
-      {data && (
-        <>
-          <div className="item">{data.description}</div>
-          <div className="item"></div>
-          <div className="item"></div>
-          <div className="item"></div>
-          <div className="item"></div>
-        </>
-      )}
+      {data &&
+        data.collection.items.map((e, index) => (
+          <a href="https://google.com" className="item" key={index}>
+            <img alt={e.data[0].title} src={e.links[0].href}></img>
+          </a>
+        ))}
     </section>
   );
 }
