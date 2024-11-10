@@ -11,7 +11,7 @@ API docs: https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf
 - [x] Make sure the application is usable on mobile devices as well.
 - [ ] Provide basic tests for your code.
 - [x] Feel free to style your application as you like.
-- [ ] Use any libraries you like.
+- [x] Use any libraries you like.
 
 ## Search page requirements:
 
@@ -21,7 +21,7 @@ API docs: https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf
 - [ ] The input data should have basic validations compliant with the API specification.
 - [x] There should be a search button that starts the search process.
 - [x] The search results should appear below the search section (inputs).
-- [ ] Each search result item should include the thumbnail, title, location, and photographer's name.
+- [x] Each search result item should include the thumbnail, title, location, and photographer's name.
 - [ ] The search result item should link to the show page - a more detailed page of the specific search result item.
 - [x] Only search image collections (media_type=image).
 

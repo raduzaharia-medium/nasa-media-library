@@ -24,6 +24,12 @@ export default function SearchResults() {
         data.collection.items.map((e, index) => (
           <a href="https://google.com" className="item" key={index}>
             <img alt={e.data[0].title} src={e.links[0].href}></img>
+
+            <div>
+              {e.data[0].title}
+              {e.data[0].center ? " • " + e.data[0].center : ""}
+              {e.data[0].photographer ? " • " + e.data[0].photographer : ""}
+            </div>
           </a>
         ))}
     </section>
