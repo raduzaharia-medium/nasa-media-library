@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Header from "./components/header.js";
 import Search from "./components/search.js";
@@ -13,15 +14,18 @@ export default function App() {
     startYear: "",
     endYear: "",
   });
+  const queryClient = new QueryClient();
 
   return (
     <AppContext.Provider value={[globalState, setGlobalState]}>
-      <Header />
+      <QueryClientProvider client={queryClient}>
+        <Header />
 
-      <main>
-        <Search />
-        <SearchResults />
-      </main>
+        <main>
+          <Search />
+          {globalState.search && <SearchResults />}
+        </main>
+      </QueryClientProvider>
     </AppContext.Provider>
   );
 }
