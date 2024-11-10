@@ -1,6 +1,6 @@
 header {
   display: flex;
-  color: #fff;
+  color: var(--nasa-white);
 
   img {
     height: 6em;

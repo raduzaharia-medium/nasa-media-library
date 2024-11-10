@@ -1,10 +1,10 @@
 section.search {
     input.main {
         background-color: transparent;
-        border: 1px solid #fff;
-        color: #fff;
+        border: var(--border);
+        color: var(--nasa-white);
         padding: 1em;
-        border-radius: 2em;
+        border-radius: var(--border-radius);
         margin-inline: auto;
         width: 60%;
         display: block;
@@ -26,33 +26,43 @@ section.search {
         }
 
         label.optional {
-            @media screen and (max-width: 350px) {
+            @media screen and (max-width: 400px) {
                 display: none;
             }
         }
 
-        input[type=date] {
+        input {
             margin-inline: 1em;
+            margin-block: 0.6em;
             background-color: transparent;
             border: none;
-            border-bottom: 1px solid #fff;
-            color: #fff;
+            border-bottom: var(--border);
+            color: var(--nasa-white);
             outline: none;
             box-sizing: border-box;
             position: relative;
 
-            @media screen and (max-width: 350px) {
+            @media screen and (max-width: 400px) {
                 margin-inline: 0;
                 width: 100%;
             }
         }
 
-        input[type=date]:before {
-            content: "📅";
-            position: relative;
-            right: 4px;
-            pointer-events: none;
-            position: absolute;
+        input[type=date]:last-of-type {
+            margin-inline-end: 0;
+        }
+    }
+
+    button {
+        margin-inline: auto;
+        display: block;
+        border: var(--border);
+        border-radius: var(--border-radius);
+        padding: 0.4em 1em;
+        cursor: pointer;
+
+        @media screen and (max-width: 400px) {
+            width: 100%;
         }
     }
 }

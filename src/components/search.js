@@ -8,10 +8,12 @@ export default function Search() {
       <p>
         <label class="main">Search for images between</label>
 
-        <input type="date" />
+        <input type="number" placeholder="year start" />
         <label class="optional">and</label>
-        <input type="date" />
+        <input type="number" placeholder="year end" />
       </p>
+
+      <button>Search</button>
     </section>
   );
 }
