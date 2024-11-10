@@ -10,7 +10,7 @@ export default function SearchResults() {
   const [globalState] = useContext(AppContext);
   const { isPending, error, data } = useQuery({
     queryKey: ["mediaSearch", globalState],
-    queryFn: async () => await getMediaItems(globalState.search),
+    queryFn: async () => await getMediaItems(globalState.query, globalState.startYear, globalState.endYear),
   });
 
   console.log(globalState);

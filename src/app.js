@@ -10,7 +10,7 @@ import "./app.css";
 
 export default function App() {
   const [globalState, setGlobalState] = useState({
-    search: "",
+    query: "",
     startYear: "",
     endYear: "",
   });
@@ -23,7 +23,7 @@ export default function App() {
 
         <main>
           <Search />
-          {globalState.search && <SearchResults />}
+          {globalState.query && <SearchResults />}
         </main>
       </QueryClientProvider>
     </AppContext.Provider>
