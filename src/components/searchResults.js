@@ -5,6 +5,9 @@ export default function SearchResults() {
     <section className="search-results">
       <div className="item"></div>
       <div className="item"></div>
+      <div className="item"></div>
+      <div className="item"></div>
+      <div className="item"></div>
     </section>
   );
 }

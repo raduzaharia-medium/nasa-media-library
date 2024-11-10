@@ -1,10 +1,11 @@
 section.search-results {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1em;
+    margin-block-start: 2em;
 
     div.item {
-        width: 200px;
         height: 200px;
-
         background-color: #fff;
     }
 }
