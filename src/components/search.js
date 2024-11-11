@@ -6,9 +6,9 @@ import "./search.css";
 export default function Search() {
   const [globalState, setGlobalState] = useContext(AppContext);
 
-  const [query, setQuery] = useState("");
-  const [startYear, setStartYear] = useState("");
-  const [endYear, setEndYear] = useState("");
+  const [query, setQuery] = useState(globalState.query);
+  const [startYear, setStartYear] = useState(globalState.startYear);
+  const [endYear, setEndYear] = useState(globalState.endYear);
 
   const doSearch = (e) => {
     e.preventDefault();

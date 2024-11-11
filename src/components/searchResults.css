@@ -32,43 +32,6 @@ section.search-results {
             }
         }
     }
-
-    nav {
-        display: flex;
-        justify-content: center;
-        gap: 1em;
-
-        button {
-            border: var(--border);
-            border-radius: var(--border-radius);
-            padding: 0.4em 1em;
-            cursor: pointer;
-
-            @media screen and (max-width: 400px) {
-                width: 100%;
-            }
-        }
-    }
-
-
-
-    .loader {
-        margin-inline: auto;
-        width: 48px;
-        height: 48px;
-        border: 5px solid var(--nasa-white);
-        border-bottom-color: transparent;
-        border-radius: 50%;
-        display: block;
-        box-sizing: border-box;
-        animation: rotation 1s linear infinite;
-    }
-
-    .error {
-        display: inline-block;
-        box-sizing: border-box;
-        margin-inline: auto;
-    }
 }
 
 @keyframes rotation {

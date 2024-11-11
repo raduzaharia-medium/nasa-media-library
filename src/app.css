@@ -2,6 +2,7 @@
   --nasa-red: #480d04;
   --nasa-black: #000;
   --nasa-white: #decece;
+  --nasa-error: #f41b1b;
 
   --border: 1px solid var(--nasa-white);
   --border-radius: 2em;
@@ -30,7 +31,64 @@ main {
   min-height: 70vh;
   padding-top: 4em;
 
+  .loader {
+    margin-inline: auto;
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--nasa-white);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  .error {
+    display: block;
+    box-sizing: border-box;
+    margin-inline: auto;
+    margin-block: 2em;
+    width: fit-content;
+    color: var(--nasa-error);
+  }
+
   @media screen and (max-width: 600px) {
     padding-top: 2em;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1em;
+
+  a {
+    border: var(--border);
+    border-radius: var(--border-radius);
+    padding: 0.4em 1em;
+    color: var(--nasa-white);
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+
+    @media screen and (max-width: 400px) {
+      width: 100%;
+    }
+  }
+}
+
+button {
+  margin-inline: auto;
+  display: block;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 0.4em 1em;
+  cursor: pointer;
+  color: var(--nasa-white);
+  background-color: transparent;
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
   }
 }

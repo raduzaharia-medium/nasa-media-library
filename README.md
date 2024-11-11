@@ -27,6 +27,6 @@ API docs: https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf
 
 ## Show page requirements:
 
-- [ ] The page should contain the details of the collection: title, location, photographer's name, description, keywords, date, and images from the collection.
-- [ ] Choose unique images from the collection, regardless of version. Most collections only have one image. Decide which version suits your preferences.
-- [ ] There should be a back button that takes you back to the search results page.
+- [x] The page should contain the details of the collection: title, location, photographer's name, description, keywords, date, and images from the collection.
+- [x] Choose unique images from the collection, regardless of version. Most collections only have one image. Decide which version suits your preferences.
+- [x] There should be a back button that takes you back to the search results page.

@@ -52,17 +52,4 @@ form.search {
             margin-inline-end: 0;
         }
     }
-
-    button {
-        margin-inline: auto;
-        display: block;
-        border: var(--border);
-        border-radius: var(--border-radius);
-        padding: 0.4em 1em;
-        cursor: pointer;
-
-        @media screen and (max-width: 400px) {
-            width: 100%;
-        }
-    }
 }
