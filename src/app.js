@@ -14,7 +14,13 @@ export default function App() {
     startYear: "",
     endYear: "",
   });
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
 
   return (
     <AppContext.Provider value={[globalState, setGlobalState]}>
