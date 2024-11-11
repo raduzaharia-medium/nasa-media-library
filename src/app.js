@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./components/header.js";
 import Search from "./components/search.js";
 import SearchResults from "./components/searchResults.js";
+import CollectionExplorer from "./components/collectionExplorer.js";
 import AppContext from "./appContext.js";
 
 import "./app.css";
@@ -27,23 +28,28 @@ export default function App() {
       path: "/",
       element: (
         <main>
-          <QueryClientProvider client={queryClient}>
-            <Search />
-            {globalState.query && <SearchResults />}
-          </QueryClientProvider>
+          <Search />
+          {globalState.query && <SearchResults />}
         </main>
       ),
     },
     {
       path: "/collection",
-      element: <div>Hello</div>,
+      element: (
+        <main>
+          <CollectionExplorer />
+        </main>
+      ),
     },
   ]);
 
   return (
     <AppContext.Provider value={[globalState, setGlobalState]}>
       <Header />
-      <RouterProvider router={router} />
+
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </AppContext.Provider>
   );
 }

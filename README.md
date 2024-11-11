@@ -7,7 +7,7 @@ API docs: https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf
 ## Requirements:
 
 - [x] Create a React single page application (it’s ok to use CRA).
-- [ ] The application should consist of 2 pages: search and show (requirements below).
+- [x] The application should consist of 2 pages: search and show (requirements below).
 - [x] Make sure the application is usable on mobile devices as well.
 - [ ] Provide basic tests for your code.
 - [x] Feel free to style your application as you like.
@@ -22,7 +22,7 @@ API docs: https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf
 - [x] There should be a search button that starts the search process.
 - [x] The search results should appear below the search section (inputs).
 - [x] Each search result item should include the thumbnail, title, location, and photographer's name.
-- [ ] The search result item should link to the show page - a more detailed page of the specific search result item.
+- [x] The search result item should link to the show page - a more detailed page of the specific search result item.
 - [x] Only search image collections (media_type=image).
 
 ## Show page requirements:
