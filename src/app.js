@@ -24,14 +24,14 @@ export default function App() {
 
   return (
     <AppContext.Provider value={[globalState, setGlobalState]}>
-      <QueryClientProvider client={queryClient}>
-        <Header />
+      <Header />
 
-        <main>
+      <main>
+        <QueryClientProvider client={queryClient}>
           <Search />
           {globalState.query && <SearchResults />}
-        </main>
-      </QueryClientProvider>
+        </QueryClientProvider>
+      </main>
     </AppContext.Provider>
   );
 }

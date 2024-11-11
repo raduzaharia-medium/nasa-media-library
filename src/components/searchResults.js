@@ -7,14 +7,12 @@ import getMediaItems from "../services/nasaMediaLibrary";
 import "./searchResults.css";
 
 export default function SearchResults() {
-  const [globalState] = useContext(AppContext);
+  const [globalState, setGlobalState] = useContext(AppContext);
   const [page, setPage] = useState(1);
   const { isPending, error, data } = useQuery({
-    queryKey: ["mediaSearch", globalState, page],
+    queryKey: ["mediaSearch", globalState.query, globalState.startYear, globalState.endYear, page],
     queryFn: async () => await getMediaItems(globalState.query, globalState.startYear, globalState.endYear, page),
   });
-
-  console.log(globalState);
 
   return (
     <section className="search-results">
@@ -25,7 +23,7 @@ export default function SearchResults() {
         <>
           <div>
             {data.collection.items.map((e, index) => (
-              <a href="https://google.com" className="item" key={index}>
+              <div className="item" key={index} onClick={() => setGlobalState({ ...globalState, selection: e })}>
                 <img alt={e.data[0].title} src={e.links[0].href}></img>
 
                 <div>
@@ -33,7 +31,7 @@ export default function SearchResults() {
                   {e.data[0].center ? " • " + e.data[0].center : ""}
                   {e.data[0].photographer ? " • " + e.data[0].photographer : ""}
                 </div>
-              </a>
+              </div>
             ))}
           </div>
 

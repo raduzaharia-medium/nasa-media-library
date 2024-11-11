@@ -18,7 +18,7 @@ API docs: https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf
 - [x] The page must allow users to search the NASA Media Library.
 - [x] The search process must use the /search endpoint (API docs).
 - [x] The page should contain the required query input and 2 optional input filters: year start and year end.
-- [ ] The input data should have basic validations compliant with the API specification.
+- [x] The input data should have basic validations compliant with the API specification.
 - [x] There should be a search button that starts the search process.
 - [x] The search results should appear below the search section (inputs).
 - [x] Each search result item should include the thumbnail, title, location, and photographer's name.
