@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 import AppContext from "../appContext";
 import getMediaItems from "../services/nasaMediaLibrary";
@@ -23,7 +24,7 @@ export default function SearchResults() {
         <>
           <div>
             {data.collection.items.map((e, index) => (
-              <div className="item" key={index} onClick={() => setGlobalState({ ...globalState, selection: e })}>
+              <Link to="/collection" className="item" key={index} onClick={() => setGlobalState({ ...globalState, selection: e })}>
                 <img alt={e.data[0].title} src={e.links[0].href}></img>
 
                 <div>
@@ -31,7 +32,7 @@ export default function SearchResults() {
                   {e.data[0].center ? " • " + e.data[0].center : ""}
                   {e.data[0].photographer ? " • " + e.data[0].photographer : ""}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 

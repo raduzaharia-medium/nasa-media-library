@@ -5,7 +5,7 @@ section.search-results {
         gap: 1em;
         margin-block: 2em;
 
-        div.item {
+        a.item {
             height: 200px;
             position: relative;
             margin: 0;
