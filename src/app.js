@@ -44,7 +44,7 @@ export default function App() {
     },
     {
       path: "/collection",
-      element: <Navigate to={{ pathname: "/" }} />,
+      element: <Navigate to="/" />,
     },
   ]);
 

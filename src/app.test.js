@@ -1,6 +1,7 @@
 import { fireEvent, render } from "@testing-library/react";
 import App from "./app";
 import { getMediaItems } from "./services/nasaMediaLibrary";
+import { MemoryRouter, Navigate, Route, Router, Routes } from "react-router-dom";
 
 jest.mock("./services/nasaMediaLibrary");
 
@@ -97,9 +98,36 @@ test("perform search", async () => {
   fireEvent.click(searchButton);
 
   const data = await getMediaItems("orion", "", "", 1);
-  console.log(data.collection.items.length);
   expect(data.collection.items.length).toBe(10);
 
   const searchResults = container.querySelector("section.search-results");
   expect(searchResults).toBeInTheDocument();
+});
+
+test("redirect if no collection id specified", () => {
+  const { container, getByText } = render(
+    <MemoryRouter initialEntries={["/collection/JSC-20160920-PH_JNB01_0002"]}>
+      <Routes>
+        <Route path="/collection/:id" element={<div>Collection Page</div>} />
+        <Route path="/collection" element={<Navigate to="/" />} />
+        <Route path="/" element={<div>Home Page</div>} />
+      </Routes>
+    </MemoryRouter>
+  );
+
+  expect(getByText("Collection Page")).toBeInTheDocument();
+});
+
+test("accept route if collection id specified", () => {
+  const { container, getByText } = render(
+    <MemoryRouter initialEntries={["/collection"]}>
+      <Routes>
+        <Route path="/collection/:id" element={<div>Collection Page</div>} />
+        <Route path="/collection" element={<Navigate to="/" />} />
+        <Route path="/" element={<div>Home Page</div>} />
+      </Routes>
+    </MemoryRouter>
+  );
+
+  expect(getByText("Home Page")).toBeInTheDocument();
 });
