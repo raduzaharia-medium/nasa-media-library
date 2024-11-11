@@ -15,6 +15,7 @@ export default function App() {
     query: "",
     startYear: "",
     endYear: "",
+    page: 1,
   });
   const queryClient = new QueryClient({
     defaultOptions: {

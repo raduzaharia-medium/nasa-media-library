@@ -63,7 +63,7 @@ export default function CollectionExplorer() {
 
       {data && (
         <>
-          <img alt="globalState.selection.title" src={data.collection.items.filter((e) => e.href.includes("orig"))[0].href} />
+          <img alt="globalState.selection.title" src={data.collection.items.filter((e) => e.href.includes("large"))[0].href} />
           <nav>
             <Link to="/">◀</Link>
           </nav>
