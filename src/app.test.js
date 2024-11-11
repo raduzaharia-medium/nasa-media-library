@@ -20,7 +20,7 @@ test("renders application header", () => {
 test("renders search component", () => {
   const { getByText, container } = render(<App />);
   const searchElement = container.querySelector("form.search");
-  const queryElement = searchElement.querySelector("input");
+  const queryElement = searchElement.querySelector("input.main");
   const searchButton = searchElement.querySelector("button");
   const yearFilter = getByText("Search for images between");
   const searchResults = container.querySelector("section.search-results");
@@ -32,10 +32,63 @@ test("renders search component", () => {
   expect(searchResults).not.toBeInTheDocument();
 });
 
+test("denies search for invalid query", () => {
+  const { container } = render(<App />);
+  const searchElement = container.querySelector("form.search");
+  const queryElement = searchElement.querySelector("input.main");
+  const searchButton = searchElement.querySelector("button");
+  const searchResults = container.querySelector("section.search-results");
+
+  fireEvent.change(queryElement, { target: { value: "" } });
+  expect(queryElement.value).toBe("");
+
+  fireEvent.click(searchButton);
+
+  expect(searchResults).not.toBeInTheDocument();
+});
+
+test("denies search for invalid start range", () => {
+  const { container } = render(<App />);
+  const searchElement = container.querySelector("form.search");
+  const queryElement = searchElement.querySelector("input.main");
+  const fromElement = searchElement.querySelector("input.from");
+  const searchButton = searchElement.querySelector("button");
+  const searchResults = container.querySelector("section.search-results");
+
+  fireEvent.change(queryElement, { target: { value: "orion" } });
+  fireEvent.change(fromElement, { target: { value: 10 } });
+
+  expect(queryElement.value).toBe("orion");
+  expect(fromElement.value).toBe("10");
+
+  fireEvent.click(searchButton);
+
+  expect(searchResults).not.toBeInTheDocument();
+});
+
+test("denies search for invalid end range", () => {
+  const { container } = render(<App />);
+  const searchElement = container.querySelector("form.search");
+  const queryElement = searchElement.querySelector("input.main");
+  const toElement = searchElement.querySelector("input.to");
+  const searchButton = searchElement.querySelector("button");
+  const searchResults = container.querySelector("section.search-results");
+
+  fireEvent.change(queryElement, { target: { value: "orion" } });
+  fireEvent.change(toElement, { target: { value: 10 } });
+
+  expect(queryElement.value).toBe("orion");
+  expect(toElement.value).toBe("10");
+
+  fireEvent.click(searchButton);
+
+  expect(searchResults).not.toBeInTheDocument();
+});
+
 test("perform search", async () => {
   const { container } = render(<App />);
   const searchElement = container.querySelector("form.search");
-  const queryElement = searchElement.querySelector("input");
+  const queryElement = searchElement.querySelector("input.main");
   const searchButton = searchElement.querySelector("button");
 
   fireEvent.change(queryElement, { target: { value: "orion" } });

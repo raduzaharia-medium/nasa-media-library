@@ -1,17 +1,18 @@
 import { useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { getAsset } from "../services/nasaMediaLibrary";
 import AppContext from "../appContext";
 
 import "./collectionExplorer.css";
 
-export default function CollectionExplorer() {
+export default function CollectionExplorer(props) {
   const [globalState] = useContext(AppContext);
+  const { id } = useParams();
   const { isPending, error, data } = useQuery({
-    queryKey: ["collection"],
-    queryFn: async () => await getAsset(globalState.selection.nasa_id),
+    queryKey: ["collection", id],
+    queryFn: async () => await getAsset(id),
   });
 
   return (

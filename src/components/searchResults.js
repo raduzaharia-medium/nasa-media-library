@@ -24,7 +24,12 @@ export default function SearchResults() {
           <div>
             {data.collection.items.map((e, index) =>
               e.data.map((item, itemIndex) => (
-                <Link to="/collection" className="item" key={`${index}${itemIndex}`} onClick={() => setGlobalState({ ...globalState, selection: item })}>
+                <Link
+                  to={`/collection/${item.nasa_id}`}
+                  className="item"
+                  key={`${index}${itemIndex}`}
+                  onClick={() => setGlobalState({ ...globalState, selection: item })}
+                >
                   <img alt={item.title} src={e.links[itemIndex].href}></img>
 
                   <div>

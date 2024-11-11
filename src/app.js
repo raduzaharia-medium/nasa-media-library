@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 
 import Header from "./components/header.js";
 import Search from "./components/search.js";
@@ -35,12 +35,16 @@ export default function App() {
       ),
     },
     {
-      path: "/collection",
+      path: "/collection/:id",
       element: (
         <main>
           <CollectionExplorer />
         </main>
       ),
+    },
+    {
+      path: "/collection",
+      element: <Navigate to={{ pathname: "/" }} />,
     },
   ]);
 
