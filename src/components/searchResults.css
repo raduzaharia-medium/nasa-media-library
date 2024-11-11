@@ -5,6 +5,10 @@ section.search-results {
         gap: 1em;
         margin-block: 2em;
 
+        @media screen and (max-width: 400px) {
+            grid-template-columns: 1fr;
+        }
+
         a.item {
             height: 200px;
             position: relative;

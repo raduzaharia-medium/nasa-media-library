@@ -4,6 +4,10 @@ header {
 
   img {
     height: 6em;
+
+    @media screen and (max-width: 400px) {
+      height: 2em;
+    }
   }
 
   span {

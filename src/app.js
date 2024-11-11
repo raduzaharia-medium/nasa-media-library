@@ -24,29 +24,34 @@ export default function App() {
       },
     },
   });
-  const router = createBrowserRouter([
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: (
+          <main>
+            <Search />
+            {globalState.query && <SearchResults />}
+          </main>
+        ),
+      },
+      {
+        path: "/collection/:id",
+        element: (
+          <main>
+            <CollectionExplorer />
+          </main>
+        ),
+      },
+      {
+        path: "/collection",
+        element: <Navigate to="/" />,
+      },
+    ],
     {
-      path: "/",
-      element: (
-        <main>
-          <Search />
-          {globalState.query && <SearchResults />}
-        </main>
-      ),
-    },
-    {
-      path: "/collection/:id",
-      element: (
-        <main>
-          <CollectionExplorer />
-        </main>
-      ),
-    },
-    {
-      path: "/collection",
-      element: <Navigate to="/" />,
-    },
-  ]);
+      basename: "/nasa-media-library",
+    }
+  );
 
   return (
     <AppContext.Provider value={[globalState, setGlobalState]}>
