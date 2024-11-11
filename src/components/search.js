@@ -17,14 +17,14 @@ export default function Search() {
 
   return (
     <form className="search" onSubmit={(e) => doSearch(e)}>
-      <input placeholder="Search..." className="main" value={query} onChange={(e) => setQuery(e.target.value)} />
+      <input placeholder="Search..." className="main" required value={query} onChange={(e) => setQuery(e.target.value)} />
 
       <p>
         <label className="main">Search for images between</label>
 
-        <input type="number" placeholder="year start" value={startYear} onChange={(e) => setStartYear(e.target.value)} />
+        <input type="number" placeholder="year" min="1900" max="9999" value={startYear} onChange={(e) => setStartYear(e.target.value)} />
         <label className="optional">and</label>
-        <input type="number" placeholder="year end" value={endYear} onChange={(e) => setEndYear(e.target.value)} />
+        <input type="number" placeholder="year" min="1900" max="9999" value={endYear} onChange={(e) => setEndYear(e.target.value)} />
       </p>
 
       <button type="submit">Search</button>

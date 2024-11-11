@@ -19,7 +19,7 @@ section.search-results {
             bottom: 0em;
             background-color: #0003;
             backdrop-filter: blur(3px);
-            color: #fff;
+            color: var(--nasa-white);
             font-size: 0.8em;
             width: 100%;
             padding: 0.4em;
@@ -31,7 +31,7 @@ section.search-results {
         margin-inline: auto;
         width: 48px;
         height: 48px;
-        border: 5px solid #FFF;
+        border: 5px solid var(--nasa-white);
         border-bottom-color: transparent;
         border-radius: 50%;
         display: inline-block;
