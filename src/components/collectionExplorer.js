@@ -15,6 +15,13 @@ export default function CollectionExplorer(props) {
     queryFn: async () => await getAsset(id),
   });
 
+  const getPicture = () => {
+    var first = data.collection.items.filter((e) => e.href.includes("large"))[0];
+    var second = data.collection.items.filter((e) => e.href.includes("orig"))[0];
+
+    return first ? first.href : second.href;
+  };
+
   return (
     <section className="collection-explorer">
       {!globalState.selection && <Navigate to="/" />}
@@ -68,7 +75,7 @@ export default function CollectionExplorer(props) {
 
       {data && (
         <>
-          <img alt="globalState.selection.title" src={data.collection.items.filter((e) => e.href.includes("large"))[0].href} />
+          <img alt="globalState.selection.title" src={getPicture()} />
           <nav>
             <Link to="/">◀</Link>
           </nav>
