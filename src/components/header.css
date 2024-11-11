@@ -1,14 +1,21 @@
 header {
   display: flex;
+  align-items: center;
   color: var(--nasa-white);
 
-  img {
-    height: 6em;
+  a {
+    display: flex;
+    align-items: center;
 
-    @media screen and (max-width: 400px) {
-      height: 2em;
+    img {
+      height: 6em;
+
+      @media screen and (max-width: 400px) {
+        height: 2em;
+      }
     }
   }
+
 
   span {
     align-self: center;
